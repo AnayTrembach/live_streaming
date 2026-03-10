@@ -1,0 +1,140 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders';
+@use 'sass:color';
+
+
+.about-section {
+  padding: 140px 0 180px;
+
+  .about {
+    margin: 0 auto;
+    @include m.d-flex(center, center, nowrap, column, 0, 0);
+
+    &__quality {
+      width: 100%;
+      max-width: 1240px;
+      height: 390px;
+      padding: 0 20px 0;
+      background: url(../assets/img/monitor.webp) 100% 100%/contain no-repeat;
+
+      @media (max-width: v.$media__xl){
+        background: linear-gradient(180deg, rgba(103,143,242,1) 0%, rgba(103,143,242,0) 74%),
+        url(../assets/img/monitor.webp) 90% 45%/500px no-repeat;
+      }
+
+      @media (max-width: v.$media__md){
+        background:url(../assets/img/monitor.webp) 90% 100%/400px no-repeat;
+      }
+
+      @media (max-width: v.$media__sm){
+        background:url(../assets/img/monitor.webp) 150px 105%/350px no-repeat;
+      }
+
+      &-description {
+        max-width: 590px;
+
+      }
+    }
+
+    &__touch {
+      position: relative;
+      @include m.d-flex(end, end, nowrap, row, 0, 0);
+      width: 100%;
+      max-width: 1240px;
+      height: 500px;
+      padding: 0 20px 0;
+
+
+      &::before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -160px;
+        z-index: -1;
+        background: url(../assets/img/phone.webp) 0 0/600px no-repeat;
+      }
+
+      &-description{
+        max-width: 470px;
+      }
+      @media (max-width: v.$media__md) {
+        height: 400px;
+        @include m.d-flex(end, start, nowrap, row, 0, 0);
+        padding: 90px 20px 0;
+
+        &::before{
+          width: 300px;
+          height: 280px;
+          top: 145px;
+          left: -40px;
+          rotate: z 55deg;
+          background: url(../assets/img/phone.webp) 0 0/99% no-repeat;
+        }
+      }
+    }
+
+    &__approach {
+      width: 100%;
+      max-width: 1240px;
+      height: 800px;
+      padding: 250px 20px 0;
+      background: url(../assets/img/cactus.webp) 90% 100%/contain no-repeat;
+
+      &-description {
+        max-width: 730px;
+      }
+
+      @media (max-width: v.$media__xl) {
+        background: url(../assets/img/cactus.webp) 110% 100%/contain no-repeat;
+
+          &-description {
+            max-width: 500px;
+          }
+      }
+      @media (max-width: v.$media__md) {
+        height: 550px;
+        padding: 100px 20px 0;
+        background: url(../assets/img/cactus.webp) 110% 115% / 250px no-repeat;
+
+          &-description {
+            max-width: 500px;
+          }
+      }
+    }
+  }
+  @media (max-width: v.$media__xl){
+    padding: 100px 0 100px;
+  }
+}
+
+.info {
+  &__title {
+    @include m.font(45px, 400, v.$white_color);
+    margin-bottom: 20px;
+
+    &_right {
+      text-align: right;
+    }
+  }
+
+  &__desc {
+    @include m.font(20px, 300, v.$white_color);
+    line-height: 1.5;
+
+    &_right {
+      text-align: right;
+    }
+  }
+  
+  @media (max-width: v.$media__md) {
+    &__title {
+      @include m.font(35px, 400, v.$white_color);
+    }
+    &__desc {
+      @include m.font(16px, 300, v.$white_color);
+    }
+  }
+}
