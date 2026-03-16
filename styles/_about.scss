@@ -5,7 +5,7 @@
 
 
 .about-section {
-  padding: 140px 0 180px;
+  padding: 140px 0 0;
 
   .about {
     margin: 0 auto;
@@ -106,7 +106,7 @@
     }
   }
   @media (max-width: v.$media__xl){
-    padding: 100px 0 100px;
+    padding: 100px 0 0;
   }
 }
 
