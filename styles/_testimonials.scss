@@ -1,0 +1,161 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders';
+@use 'sass:color';
+
+%slider-button {
+  width: 67px;
+  height: 67px;
+  border: none;
+  border-radius: 20px;
+  background-color: adjust-color(v.$white_color,  $alpha: -0.85);
+  rotate: z 45deg;
+}
+
+.testimonials-section {
+  padding: 200px 20px 50px;
+
+  .testimonials {
+    margin: 0 auto;
+  }
+
+  .wave-card {
+    width: 500px;
+    height: 275px;
+    background: url(../assets/wave_card_bg.svg) center/cover no-repeat;
+    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.1));
+    @include m.d-flex(start, start, nowrap, column, 0, 30px);
+
+    &__img {
+      width: 49px;
+      height: 49px;
+      margin: 20px 0 0 20px;
+
+      .wave-card__avatar {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    &__text {
+      @include m.font(20px, 300, v.$white_color);
+      line-height: 1.5;
+      padding: 0 50px 0 30px;
+    }
+
+    @media (max-width: v.$media__md) {
+      width: 330px;
+      row-gap: 20px;
+      background: url(../assets/wave_card_bg.svg) 50% 0/contain no-repeat;
+
+      &__text {
+        @include m.font(13px, 300, v.$white_color);
+        padding: 0 30px 0 20px;
+      }
+
+      &__img {
+        width: 31px;
+        height: 31px;
+        margin: 15px 0 0 15px;
+      }
+    }
+  }
+
+  .slider {
+    position: relative;
+    margin: 0 auto;
+    height: 500px;
+    width: 500px;
+
+    &__left-btn {
+      @extend %slider-button;
+      position: absolute;
+      top: 100px;
+      left: -100px;
+      z-index: 1;
+
+      &-icon {
+        width: 36px;
+        height: 23px;
+        fill: v.$white_color;
+        rotate: z 135deg;
+      }
+    }
+
+    &__right-btn {
+      @extend %slider-button;
+      position: absolute;
+      top: 100px;
+      right: -100px;
+      z-index: 1;
+
+      &-icon {
+          width: 36px;
+          height: 23px;
+          fill: v.$white_color;
+          rotate: z -45deg;
+      }
+    }
+
+    &__right-btn:hover,
+    &__left-btn:hover {
+      cursor: pointer;
+      scale: 1.2;
+      box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
+    }
+
+    &__points {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      translate: -50%;
+      @include m.d-flex(center, center, nowrap, row, 9px, 0);
+
+      &-item {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: v.$white_color;
+
+        &:hover {
+          cursor: pointer;
+          scale: 0.7;
+          background-color: #B4B4B4;
+        }
+      }
+    }
+
+    @media (max-width: v.$media__md){
+      width: 330px;
+      height: 250px;
+
+      &__left-btn,
+      &__right-btn {
+        width: 53px;
+        height: 53px;
+
+        &-icon {
+          width: 28px;
+          height: 17px;
+        }
+      }
+    }
+    @media (max-width: v.$media__sm) {
+      &__left-btn {
+        top: unset;
+        bottom: -20px;
+        left: 0;
+      }
+
+      &__right-btn {
+        top: unset;
+        bottom: -20px;
+        right: 0;
+      }
+
+    }
+  }
+  @media (max-width: v.$media__sm) {
+    padding: 120px 20px 50px;
+  }
+}
