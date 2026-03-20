@@ -44,7 +44,7 @@
     }
 
     @media (max-width: v.$media__md) {
-      width: 330px;
+      width: 300px;
       row-gap: 20px;
       background: url(../assets/wave_card_bg.svg) 50% 0/contain no-repeat;
 
@@ -126,7 +126,7 @@
     }
 
     @media (max-width: v.$media__md){
-      width: 330px;
+      width: 300px;
       height: 250px;
 
       &__left-btn,
