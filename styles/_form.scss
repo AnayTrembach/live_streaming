@@ -52,6 +52,7 @@
     @include m.font(36px, 400, v.$black_color);
     line-height: 2;
     text-align: center;
+    text-wrap: balance;
 
     @media (max-width: v.$media__md){
       @include m.font(32px, 400, v.$black_color);
